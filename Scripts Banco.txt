@@ -1,0 +1,70 @@
+CREATE DATABASE lavacaoOconner;
+
+USE lavacaoOconner;
+
+CREATE TABLE Funcionarios (
+ID INTEGER AUTO_INCREMENT PRIMARY KEY,
+nomeFunc VARCHAR(255) NOT NULL,
+sexoFunc CHAR(1),
+dataNascFunc DATE,
+cpfFunc VARCHAR(14) NOT NULL,
+telefoneFunc VARCHAR(15),
+emailFunc VARCHAR(255) NOT NULL,
+cepFunc VARCHAR(9),
+enderecoFunc VARCHAR(255),
+complementoFunc VARCHAR(255),
+passFunc VARCHAR(255) NOT NULL,
+nivelAcessoFunc VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Clientes (
+ID INTEGER AUTO_INCREMENT PRIMARY KEY,
+nomeClient VARCHAR(255) NOT NULL,
+sexoClient CHAR(1),
+dataNascClient DATE,
+cpfClient VARCHAR(14) NOT NULL,
+telefoneClient VARCHAR(15),
+emailClient VARCHAR(255),
+cepClient VARCHAR(9),
+enderecoClient VARCHAR(255),
+complementoClient VARCHAR(255)
+);
+
+CREATE TABLE Servicos (
+ID INTEGER AUTO_INCREMENT PRIMARY KEY,
+nomeServ VARCHAR(255) NOT NULL,
+valorServ VARCHAR(255) NOT NULL,
+descServ VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Agendamentos (
+ID INTEGER AUTO_INCREMENT PRIMARY KEY,
+nomeClient VARCHAR(255) NOT NULL,
+servico VARCHAR(255) NOT NULL,
+valor VARCHAR(255) NOT NULL,
+data DATE NOT NULL,
+hora TIME NOT NULL,
+obs VARCHAR(255)
+);
+
+INSERT INTO Funcionarios (nomeFunc, sexoFunc, dataNascFunc, cpfFunc, telefoneFunc, emailFunc, cepFunc, enderecoFunc, complementoFunc, passFunc, nivelAcessoFunc) VALUES
+('Athos', 'Masculino', '2003/07/05', '00000000000', '(47)900000000', 'athos_func@email.com', '89000-000', 'rua x, yyy', 'apto zzzz', 'senha789', 'Estagiário'),
+('Deschamps', 'Masculino', '2021/01/11', '00000000000', '(47)900000000', 'deschamps_func@email.com', '89000-000', 'rua x, yyy', 'apto zzzz', 'senha111', 'Gerente'),
+('Eduardo', 'Masculino', '2022/02/12', '00000000000', '(47)900000000', 'eduardo_func@email.com', '89000-000', 'rua x, yyy', 'apto zzzz', 'senha456', 'Estagiário'),
+('Luiz', 'Masculino', '2023/03/13', '00000000000', '(47)900000000', 'luiz_func@email.com', '89000-000', 'rua x, yyy', 'apto zzzz', 'senha123', 'Estagiário');
+
+;
+
+-- Inserindo dados na tabela Clientes
+INSERT INTO Clientes (nomeClient, sexoClient, dataNascClient, cpfClient, telefoneClient, emailClient, cepClient, enderecoClient, complementoClient) VALUES
+('Athos', 'Masculino', '2003/07/05', '00000000000', '(47)900000000', 'athos_cliente@email.com', '89000-000', 'rua x, yyy', 'apto zzzz'),
+('Deschamps', 'Masculino', '2021/01/11', '00000000000', '(47)900000000', 'deschamps_cliente@email.com', '89000-000', 'rua x, yyy', 'apto zzzz'),
+('Eduardo', 'Masculino', '2022/02/12', '00000000000', '(47)900000000', 'eduardo_cliente@email.com', '89000-000', 'rua x, yyy', 'apto zzzz'),
+('Luiz', 'Masculino', '2023/03/13', '00000000000', '(47)900000000', 'luiz_cliente@email.com', '89000-000', 'rua x, yyy', 'apto zzzz');
+
+-- Inserindo dados na tabela Servicos
+INSERT INTO Servicos (nomeServ, valorServ, descServ) VALUES
+('Lavagem simples', '50,00', 'Lavagem externa e interna'),
+('Lavagem completa', '80,00', 'Lavagem externa, interna e enceramento'),
+('Polimento', '100,00', 'Polimento da pintura'),
+('Higienização', '70,00', 'Limpeza interna profunda');
